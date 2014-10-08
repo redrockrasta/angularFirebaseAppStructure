@@ -1,0 +1,20 @@
+{
+  "name": "swaychat-site-assets",
+  "version": "0.0.1",
+  "description": "Swaychat Site Front-End Assets",
+  "homepage": "https://github.com/code-ninja/swaychat",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "parsleyjs": "~2.0.3",
+    "underscore": ">=1.6.0",
+    "moment": "~2.8.3",
+    "angular": "~1.2.26",
+    "angular-resource": "~1.2.26",
+    "angular-loader": "~1.2.26",
+    "angular-route": "~1.2.26",
+    "angular-mocks": "~1.2.26",
+    "angularfire": "~0.8.2"
+  }
+}

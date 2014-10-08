@@ -1,0 +1,19 @@
+{
+    "launch_in_dev": ["chrome"],
+    "src_files": [
+        "vendor/angular/angular.min.js",
+        "vendor/angular-mocks/angular-mocks.js",
+        "vendor/angular-route/angular-route.min.js",
+        "vendor/firebase/firebase.js",
+        "vendor/angularfire/dist/angularfire.min.js",
+        "vendor/underscore/underscore.js",
+        "vendor/moment/min/moment.min.js",
+        "lib/bootstrap/namespace.js",
+        "lib/bootstrap/BaseClass.js",
+        "lib/bootstrap/BaseController.js",
+        "lib/bootstrap/bootstrap.js",
+
+        "lib/app/**/*.js",
+        "lib/tests/**/*.js"
+    ]
+}

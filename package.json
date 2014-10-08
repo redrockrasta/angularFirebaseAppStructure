@@ -1,0 +1,81 @@
+{
+  "name": "swaychat-site-gulp",
+  "version": "0.0.1",
+  "description": "Packages for Swaychat Site Asset Management",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/code-ninja/swaychat"
+  },
+  "options": {
+    "dest": "public/assets/",
+    "tmp": "public/tmp",
+    "bucketfolder": "assets",
+    "cdn": "//cdn.swaychat.com/",
+    "manifest": "app/storage/meta",
+    "expire": {
+      "Cache-Control": "max-age=604800, public",
+      "Pragma": "public"
+    },
+    "css": {
+      "src": [
+        "app/assets/app/css/*.{scss,css}"
+      ],
+      "loadPath": [
+        "app/assets/vendor/bootstrap-sass-official/assets/stylesheets"
+        ,"app/assets/vendor/foundation/scss"
+        ,"app/assets/utils"
+      ],
+      "cacheLocation": "app/storage/cache/.sass-cache"
+    },
+    "js": {
+      "src": [
+        "app/assets/app/js/**/*.js"
+      ]
+    },
+    "mapfiles": {
+      "src": [
+        "app/assets/**/*.map"
+      ]
+    },
+    "template": {
+      "src": [
+        "app/assets/lib/**/*.{html,json}"
+      ]
+    },
+    "fonts": {
+      "src": [
+        "app/assets/app/fonts/**/*.{ttf,eot,svg,woff}"
+      ]
+    },
+    "images": {
+      "src": [
+        "app/assets/**/*.{ico,jpeg,jpg,gif,bmp,png,webp,swf,svg,mp3}"
+      ]
+    }
+  },
+  "dependencies": {
+    "gulp": "^3.8.1",
+    "gulp-autoprefixer": "0.0.7",
+    "gulp-awspublish": "0.0.17",
+    "gulp-awspublish-router": "0.0.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-flatten": "0.0.2",
+    "gulp-if": "^1.2.1",
+    "gulp-imagemin": "^0.6.1",
+    "gulp-include": "^0.2.3",
+    "gulp-livereload": "^2.1.0",
+    "gulp-load-plugins": "^0.5.2",
+    "gulp-rename": "^1.2.0",
+    "gulp-rev": "code-ninja/gulp-rev",
+    "gulp-rev-replace": "code-ninja/gulp-rev-replace",
+    "gulp-ruby-sass": "^0.5.0",
+    "gulp-size": "^0.4.0",
+    "gulp-uglify": "^0.3.1",
+    "gulp-util": "^2.2.17",
+    "run-sequence": "^0.3.6"
+  },
+  "devDependencies": {
+    "gulp-jshint": "^1.6.3"
+  }
+}
