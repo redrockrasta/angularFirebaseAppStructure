@@ -1,10 +1,18 @@
-describe("SocketService Spec", function () {
-    var fakeWindow, socketer;
+describe('SocketProvider', function () {
+
+    var SocketService;
+
+    beforeEach(function () {
+        module('firebase');
+        module('SwayChat.SocketService');
+    });
+
+    beforeEach(inject(function (_SocketService_) {
+      SocketService = _SocketService_;
+    }));
 
 
-    describe('Initialization', function() {
-        it("should instantiate controller", function () {
-            expect($scope.name).toEqual("ChatController");
-        });
+    it('tests the providers internal function', function () {
+        expect(SocketService.test()).toEqual("x");
     });
 });

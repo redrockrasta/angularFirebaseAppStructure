@@ -25,6 +25,10 @@
             this._token = token;
         }
 
+        , test : function () {
+            return "x";
+        }
+
         , connect : function (url) {
             var self = this;
 

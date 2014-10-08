@@ -19,7 +19,6 @@
          */
         init: function ($scope, $SocketService)
         {
-            console.log($SocketService);
             this._super($scope)
             this._name = "test";
             $scope.name = "ChatController";

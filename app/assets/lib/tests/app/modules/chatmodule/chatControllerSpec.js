@@ -1,16 +1,17 @@
 describe("ChatController", function () {
-    var $rootScope,
-        $scope,
-        controller;
-
+    var ctrl, scope, service;
     beforeEach(function () {
-        angular.mock.module('chatmodule');
-        inject(function ($location, $rootScope, $controller) {
-                    $location = $location;
-                    $scope = $rootScope.$new();
-                    controller = $controller('Codeninja.SwayChat.Controller.ChatController', {'$scope': $scope});
-                });
+        angular.mock.module('SwayChat.SocketService')
+        angular.mock.module('chatmodule')
     });
+
+    beforeEach(inject(function($controller, $rootScope, SocketService) {
+
+      $scope = $rootScope.$new();
+      service = SocketService;
+      //Create the controller with the new scope
+      ctrl = $controller('Codeninja.SwayChat.Controller.ChatController', {$scope: $scope, $SocketService: service});
+    }));
 
     describe('Initialization', function() {
         it("should instantiate controller", function () {

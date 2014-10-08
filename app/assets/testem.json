@@ -9,8 +9,9 @@
         "vendor/underscore/underscore.js",
         "vendor/moment/min/moment.min.js",
         "lib/bootstrap/namespace.js",
-        "lib/bootstrap/BaseClass.js",
-        "lib/bootstrap/BaseController.js",
+        "lib/bootstrap/baseClass.js",
+        "lib/bootstrap/baseController.js",
+        "lib/bootstrap/eventDispatcher.js",
         "lib/bootstrap/bootstrap.js",
 
         "lib/app/**/*.js",
