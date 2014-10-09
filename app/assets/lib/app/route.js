@@ -1,18 +1,7 @@
 
-(function () {
+(function (route) {
 
-    var namespace = 'Codeninja.SwayChat';
-    var route = {};
+    //DECLARE ROUTES
+    route("/chatmodule", "ChatController@chatmodule", "assets/template/app/views/chatmodule/chatController.html");
 
-    /* Route for chatModule*/
-    route.chatmodule = [
-        {
-            "path":"/chatmodule",
-            "templateUrl":"assets/template/app/views/chatmodule/chatController.html",
-            "controller": namespace + ".Controller.ChatController"
-        }
-    ]
-
-    inamespace('Codeninja.SwayChat').Route = route;
-
-}());
+})(_Router);

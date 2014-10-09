@@ -11,7 +11,7 @@
 
 /* BASE APPLICATION CLASS */
 
-//= include ../../lib/bootstrap/namespace.js
+//= include ../../lib/bootstrap/path.js
 //= include ../../lib/bootstrap/baseClass.js
 //= include ../../lib/bootstrap/baseController.js
 //= include ../../lib/bootstrap/eventDispatcher.js
@@ -27,12 +27,14 @@
 /* SERVICES*/
 
 //= include ../../lib/app/services/socketService.js
+//= include ../../lib/app/services/encapsulator.js
 
 /* CONTROLLER*/
 
 //= include ../../lib/app/modules/chatmodule/chatController.js
 
+/* MODELS */
 
-
+//= include ../../lib/app/modules/chatmodule/chatModel.js
 
 

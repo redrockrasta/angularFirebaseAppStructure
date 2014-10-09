@@ -5,10 +5,9 @@
 
         'use strict';
         var module = 'chatmodule';
-        var namespace = 'Codeninja.SwayChat';
 
         //@todo module must be dynamic
-        var moduleConfig = inamespace(namespace + '.Config.Modules')[module];
+        var moduleConfig = inamespace('Config.Modules')[module];
 
 
         angular.module(moduleConfig.name, moduleConfig.dependencies)
@@ -16,7 +15,7 @@
 
 
                 /* Load Routes */
-                var routes =  inamespace('Codeninja.SwayChat.Route')[module];
+                var routes =  inamespace('Route')[module];
 
                 _.each(routes, function (route) {
                     $routeProvider.when(route.path, {templateUrl : route.templateUrl, controller : route.controller});

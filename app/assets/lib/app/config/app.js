@@ -11,6 +11,6 @@
         }
     }
 
-    inamespace('Codeninja.SwayChat.Config').Application = app;
+    inamespace('Config').Application = app;
 
 }());

@@ -25,9 +25,8 @@
         }
 
     });
-
-    inamespace('Codeninja.SwayChat.Controller').ChatController = ChatController;
-    Codeninja.SwayChat.Controller.ChatController.$inject = ['$scope', 'SocketService'];
+    inamespace('Controller').ChatController = ChatController;
+    inamespace('Controller').ChatController.$inject = ['$scope', 'SocketService', 'ChatModel'];
 
 }());
 

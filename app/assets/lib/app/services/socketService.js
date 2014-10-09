@@ -25,15 +25,12 @@
             this._token = token;
         }
 
-        , test : function () {
-            return "x";
-        }
-
         , connect : function (url) {
+
             var self = this;
 
             if (_.isEmpty(this._fbRef)) {
-                this._fbRef = new Firebase(url);
+                this._fbRef = new this._firebase(url);
             }
 
             var authCallback = function (error, results) {
@@ -52,19 +49,22 @@
 
     var SocketServiceProvider = Class.extend({
 
+
         instance : new FireBaseService(),
 
         /**
          * Initialize and configure ActivtyModel
-         * @return UserModel
+         * @return FireBaseService
         */
         $get:['$firebase', function($firebase){
-            this.instance._firebase = $firebase;
+            var injector = angular.injector(['VendorService']);
+            this.instance._firebase = injector.get('FirebaseDep');
+            this.instance._angularFire = $firebase;
             return this.instance;
         }]
     })
 
-    angular.module('SwayChat.SocketService',['firebase'])
+    angular.module('SwayChat.SocketService',['firebase','VendorService'])
            .provider('SocketService',SocketServiceProvider);
 
 }(_));

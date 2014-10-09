@@ -8,12 +8,12 @@
     var modules = {
         chatmodule : {
             name : 'chatmodule'
-            , dependencies : ['ngRoute', 'SwayChat.SocketService']
+            , dependencies : ['ngRoute', 'SwayChat.SocketService','SwayChat.ChatModel']
             , defaultroute : '/chatmodule'
         }
     }
 
-    inamespace('Codeninja.SwayChat.Config').Modules = modules;
+    inamespace('Config').Modules = modules;
 
 }());
 

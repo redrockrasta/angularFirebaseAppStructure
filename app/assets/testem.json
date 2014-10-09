@@ -1,4 +1,6 @@
 {
+    "framework" : "jasmine2",
+
     "launch_in_dev": ["chrome"],
     "src_files": [
         "vendor/angular/angular.min.js",
@@ -8,7 +10,7 @@
         "vendor/angularfire/dist/angularfire.min.js",
         "vendor/underscore/underscore.js",
         "vendor/moment/min/moment.min.js",
-        "lib/bootstrap/namespace.js",
+        "lib/bootstrap/path.js",
         "lib/bootstrap/baseClass.js",
         "lib/bootstrap/baseController.js",
         "lib/bootstrap/eventDispatcher.js",
