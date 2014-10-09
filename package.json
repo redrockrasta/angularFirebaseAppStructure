@@ -40,7 +40,7 @@
     },
     "template": {
       "src": [
-        "app/assets/lib/**/*.{html,json}"
+        "app/assets/lib/app/**/*.{html,json}"
       ]
     },
     "fonts": {
