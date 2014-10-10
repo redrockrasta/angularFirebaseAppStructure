@@ -29,6 +29,7 @@ describe('SocketService Provider', function () {
 
       it ('should instantiate firebase on valid URL', function () {
         var spy = spyOn(SocketService, '_firebase').and.returnValue(inamespace('SwayChat.Tests.Mock').Firebase);
+
         SocketService.connect("https://url.firebaseio.com/");
         expect(spy).toHaveBeenCalledWith("https://url.firebaseio.com/");
       });

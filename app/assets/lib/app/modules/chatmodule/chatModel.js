@@ -28,7 +28,7 @@
         }]
     })
 
-    angular.module('SwayChat.ChatModel',[])
+    angular.module('chatmodule.ChatModel',[])
            .provider('ChatModel',ChatModelProvider);
 
 }(_));

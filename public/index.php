@@ -45,6 +45,8 @@
         </div>
         <script type="text/javascript" src="jquery.min.js"></script>
         <script type="text/javascript" src="foundation.min.js"></script>
+        <script type="text/javascript" src="/assets/js/vendors.js"></script>
+        <script type="text/javascript" src="/assets/js/appstarter.js"></script>
         <script type="text/javascript" src="/assets/js/app.chatmodule.js"></script>
 </body>
 </html>
