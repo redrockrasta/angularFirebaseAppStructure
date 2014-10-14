@@ -21,11 +21,24 @@
         , _fbRef : null
         , _token : null
 
+        , init : function () {
+            console.log(this._firebase);
+        }
+
         , setToken : function (token) {
             this._token = token;
         }
 
-        , connect : function (url) {
+        , connectByToken : function (token, url, cb) {
+            this.setToken = token;
+            this.connect(url, cb)
+        }
+
+        , connect : function (url, cb) {
+            if (_.isEmpty(this._token)) {
+                throw "Error: Token is required";
+                return false;
+            }
 
             var self = this;
 
@@ -33,16 +46,7 @@
                 this._fbRef = new this._firebase(url);
             }
 
-            var authCallback = function (error, results) {
-                if (!_.isEmpty(error)) {
-                    self.dispatchEvent(self.events.error);
-                    return;
-                }
-
-                self.dispatchEvent(self.events.connected);
-            }
-
-            this._fbRef.auth(this._token, authCallback);
+            this._fbRef.auth(this._token, cb);
         }
 
     });
@@ -56,10 +60,11 @@
          * Initialize and configure ActivtyModel
          * @return FireBaseService
         */
-        $get:['$firebase', function($firebase){
+        $get:['$firebase','$q', function($firebase, $q){
             var injector = angular.injector(['VendorService']);
             this.instance._firebase = injector.get('FirebaseDep');
             this.instance._angularFire = $firebase;
+            this.instance._q = $q;
             return this.instance;
         }]
     })

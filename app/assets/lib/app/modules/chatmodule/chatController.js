@@ -29,8 +29,6 @@
         init: function ($scope, $socketService, $chatModel, $dataRepository)
         {
             this._super($scope);
-
-
             //@todo - User must be dynamic. For demo purpose only
             $dataRepository.setUser(this._user);
         },

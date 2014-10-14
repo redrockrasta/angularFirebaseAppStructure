@@ -42,5 +42,14 @@ describe('SocketService Provider', function () {
         expect(spyAuth).toHaveBeenCalled();
       });
 
+      it ('should receive response from firebase', function () {
+        var callback = jasmine.createSpy();
+        var spy = spyOn(SocketService, '_firebase').and.returnValue(inamespace('SwayChat.Tests.Mock').Firebase);
+        spyAuth = spyOn(spy(), 'auth').and.returnValue(true);
+
+        SocketService.connect("https://url.firebaseio.com/");
+        expect(spyAuth).toHaveBeenCalled();
+      });
+
     });
 });

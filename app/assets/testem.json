@@ -1,7 +1,7 @@
 {
     "framework" : "jasmine2",
 
-    "launch_in_dev": ["chrome"],
+    "launch_in_dev": ["PhantomJS"],
     "src_files": [
         "vendor/angular/angular.min.js",
         "vendor/angular-mocks/angular-mocks.js",
