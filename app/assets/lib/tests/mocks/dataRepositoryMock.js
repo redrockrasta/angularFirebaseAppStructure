@@ -1,7 +1,7 @@
 
 (function(){
 
-    inamespace('SwayChat.Tests.Mock').DataRepository = {
+    ns('SwayChat.Tests.Mock').DataRepository = {
         userData : {
             "uid" : "1a0dd84e-0269-42d8-bdf4-6d4c4286d1k7"
             , "created_at": 1412928557628

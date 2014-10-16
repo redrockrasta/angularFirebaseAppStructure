@@ -15,8 +15,8 @@ describe('Data Repository Service', function () {
 
         });
 
-        userData = inamespace('SwayChat.Tests.Mock.DataRepository').userData;
-        clientData = inamespace('SwayChat.Tests.Mock.DataRepository').clientData;
+        userData = ns('SwayChat.Tests.Mock.DataRepository').userData;
+        clientData = ns('SwayChat.Tests.Mock.DataRepository').clientData;
     });
 
     it('Should get or set user data', function () {

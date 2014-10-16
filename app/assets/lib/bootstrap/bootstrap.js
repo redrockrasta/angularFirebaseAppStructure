@@ -7,7 +7,7 @@
         var module = 'chatmodule';
 
         //@todo module must be dynamic
-        var moduleConfig = inamespace('Config.Modules')[module];
+        var moduleConfig = ns('Config.Modules')[module];
 
 
         angular.module(moduleConfig.name, moduleConfig.dependencies)
@@ -15,7 +15,7 @@
 
 
                 /* Load Routes */
-                var routes =  inamespace('Route')[module];
+                var routes =  ns('Route')[module];
 
                 _.each(routes, function (route) {
                     $routeProvider.when(route.path, {templateUrl : route.templateUrl, controller : route.controller});

@@ -13,7 +13,7 @@
         }
     }
 
-    inamespace('Config').Modules = modules;
+    ns('Config').Modules = modules;
 
 }());
 

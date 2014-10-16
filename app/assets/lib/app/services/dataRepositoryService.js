@@ -3,8 +3,8 @@
 
     var DataRepositoryService = function ($window) {
         this.window = $window;
-        this.userData = {};
-        this.clientData = []
+        this.userData = ns('DataRepository').userData;
+        this.clientData = _.isArray(ns('DataRepository').clientData) ? ns('DataRepository').clientData : ns('DataRepository').clientData = [];
     };
 
     DataRepositoryService.prototype = {

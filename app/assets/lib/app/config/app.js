@@ -11,6 +11,6 @@
         }
     }
 
-    inamespace('Config').Application = app;
+    ns('Config').Application = app;
 
 }());

@@ -17,6 +17,7 @@
             , sendMessage : 'onSendMessage'
 
         }
+        , _dataRepo : null
         , _firebase : null
         , _fbRef : null
         , _token : null
@@ -52,8 +53,6 @@
     });
 
     var SocketServiceProvider = Class.extend({
-
-
         instance : new FireBaseService(),
 
         /**
@@ -61,15 +60,17 @@
          * @return FireBaseService
         */
         $get:['$firebase','$q', function($firebase, $q){
-            var injector = angular.injector(['VendorService']);
+            var injector = angular.injector(['VendorService','SwayChat.DataRepository']);
             this.instance._firebase = injector.get('FirebaseDep');
+            this.instance._dataRepo = injector.get('DataRepository');
             this.instance._angularFire = $firebase;
             this.instance._q = $q;
+            ns('Jotu').SocketService = this.instance;
             return this.instance;
         }]
     })
 
-    angular.module('SwayChat.SocketService',['firebase','VendorService'])
+    angular.module('SwayChat.SocketService',['firebase','VendorService','SwayChat.DataRepository'])
            .provider('SocketService',SocketServiceProvider);
 
 }(_));

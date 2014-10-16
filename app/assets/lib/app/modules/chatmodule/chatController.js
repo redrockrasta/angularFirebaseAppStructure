@@ -29,6 +29,7 @@
         init: function ($scope, $socketService, $chatModel, $dataRepository)
         {
             this._super($scope);
+            ns('Jotu').dataRepository = $dataRepository;
             //@todo - User must be dynamic. For demo purpose only
             $dataRepository.setUser(this._user);
         },
@@ -43,8 +44,8 @@
 
     });
 
-    inamespace('Controller').ChatController = ChatController;
-    inamespace('Controller').ChatController.$inject = ['$scope', 'SocketService', 'ChatModel', 'DataRepository'];
+    ns('Controller').ChatController = ChatController;
+    ns('Controller').ChatController.$inject = ['$scope', 'SocketService', 'ChatModel', 'DataRepository'];
 
 }());
 

@@ -6,12 +6,12 @@
 */
 (function(_){
 
-    var ns = 'Codeninja.SwayChat';
+    var _ns = 'Codeninja.SwayChat';
 
     //register namespace to window
     window.Codeninja || (window.Codeninja = {});
     window.Codeninja.SwayChat || (window.Codeninja.SwayChat = {});
-    window.inamespace = function(namespaces){
+    window.ns = function(namespaces){
 
         var names = (_.isEmpty(namespaces)) ? [] : namespaces.split('.');
 
@@ -37,7 +37,7 @@
 
     var Route = {};
 
-    inamespace().Route = Route;
+    ns().Route = Route;
 
     var Router = function (path, controller, template) {
         try {
@@ -50,7 +50,7 @@
             Route[ctrl[1]].push({
                     path : path,
                     templateUrl : template,
-                    controller : ns + '.Controller.' + ctrl[0]
+                    controller : _ns + '.Controller.' + ctrl[0]
                 });
 
         } catch (err) {
@@ -59,6 +59,6 @@
     }
 
 
-    window._Router = inamespace().Router = Router
+    window._Router = ns().Router = Router
 
 })(_);
