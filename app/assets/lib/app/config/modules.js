@@ -1,4 +1,4 @@
-/**
+ /**
  * Configuration for application Modules and Dependencies
  * By: John Turingan
  * @return {}

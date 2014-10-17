@@ -14,8 +14,6 @@
     window.ns = function(namespaces){
 
         var names = (_.isEmpty(namespaces)) ? [] : namespaces.split('.');
-
-
         var namespace  = window.Codeninja.SwayChat;
         var name  = null;
         var i     = null;

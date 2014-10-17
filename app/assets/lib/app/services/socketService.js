@@ -4,7 +4,7 @@
  *  Should Implement following method:
  *  - setToken(token)
  *  - connect(url)
- *
+ *  Secret : Frjn43RcE9DXfEAjCQN6uHE0DPT5GvsjsKHAmYnP
  */
 (function (_) {
 

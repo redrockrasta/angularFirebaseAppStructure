@@ -28,14 +28,14 @@ describe('SocketService Provider', function () {
       });
 
       it ('should instantiate firebase on valid URL', function () {
-        var spy = spyOn(SocketService, '_firebase').and.returnValue(ns('SwayChat.Tests.Mock').Firebase);
+        var spy = spyOn(SocketService, '_firebase').and.returnValue(ns('Tests.Mock').Firebase);
 
         SocketService.connect("https://url.firebaseio.com/");
         expect(spy).toHaveBeenCalledWith("https://url.firebaseio.com/");
       });
 
       it ('should authenticate connection', function () {
-        var spy = spyOn(SocketService, '_firebase').and.returnValue(ns('SwayChat.Tests.Mock').Firebase);
+        var spy = spyOn(SocketService, '_firebase').and.returnValue(ns('Tests.Mock').Firebase);
         spyAuth = spyOn(spy(), 'auth').and.returnValue(true);
 
         SocketService.connect("https://url.firebaseio.com/");
@@ -44,7 +44,7 @@ describe('SocketService Provider', function () {
 
       it ('should receive response from firebase', function () {
         var callback = jasmine.createSpy();
-        var spy = spyOn(SocketService, '_firebase').and.returnValue(ns('SwayChat.Tests.Mock').Firebase);
+        var spy = spyOn(SocketService, '_firebase').and.returnValue(ns('Tests.Mock').Firebase);
         spyAuth = spyOn(spy(), 'auth').and.returnValue(true);
 
         SocketService.connect("https://url.firebaseio.com/");

@@ -1,7 +1,7 @@
 
 (function(){
 
-    ns('SwayChat.Tests.Mock').Firebase = {
+    ns('Tests.Mock').Firebase = {
         auth : function (a,b,c){}
     }
 
