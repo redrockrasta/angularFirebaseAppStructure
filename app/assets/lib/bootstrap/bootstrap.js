@@ -13,7 +13,6 @@
         angular.module(moduleConfig.name, moduleConfig.dependencies)
             .config(['$routeProvider', function($routeProvider) {
 
-
                 /* Load Routes */
                 var routes =  ns('Route')[module];
 
@@ -24,7 +23,8 @@
                 $routeProvider.otherwise({redirectTo: moduleConfig.defaultroute});
                 window.routeProvider = $routeProvider;
                 window.startHash = window.location.hash.substring(1);
-            }])
+
+            }]);
 
         //@todo - module should be dynamic
         angular.bootstrap(document, [module]);

@@ -7,7 +7,7 @@
 
     var app = {
         firebase : {
-            url : "https://sweltering-heat-8664.firebaseio.com/"
+            url : "https://swaychat-beta.firebaseio.com"
         }
     }
 

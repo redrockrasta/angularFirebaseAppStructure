@@ -5,7 +5,7 @@
 *
 * Use of Class.js
 *
-* @author universalmind.com
+* @author John Turingan
 */
 
 (function () {
@@ -18,11 +18,9 @@ var EventDispatcher = Class.extend({
     * @param type : Event type
     * @param listener : Listener callback
     */
-    addEventListener:function(type,listener){
-        if(!this._listeners[type]){
-            this._listeners[type] = [];
-        }
-        this._listeners[type].push(listener)
+    addEventListener:function(type, listener){
+        this._listeners[type] = this._listeners[type] || [];
+        this._listeners[type].push(listener);
     },
 
 
@@ -31,7 +29,7 @@ var EventDispatcher = Class.extend({
        * @param type : Event type
        * @param listener : Listener callback
        */
-    removeEventListener:function(type,listener){
+    removeEventListener:function(type, listener){
       if(this._listeners[type]){
         var index = this._listeners[type].indexOf(listener);
 
@@ -41,23 +39,30 @@ var EventDispatcher = Class.extend({
       }
     },
 
+    // Retrieve the list of event handlers for a given type.
+    _getListeners: function(type) {
+        if (this._listeners.hasOwnProperty(type)) {
+            return this._listeners[type];
+        }
+            return [];
+    },
+
 
     /**
     * Dispatch an event to all registered listener
     * @param Mutiple params available, first must be string
     */
-    dispatchEvent:function(){
+    dispatchEvent:function(type){
         var listeners;
 
-        if(typeof arguments[0] !== 'string'){
-            console.warn('EventDispatcher','First params must be an event type (String)')
-        }else{
-            listeners = this._listeners[arguments[0]];
+        var args = [],
+        listeners = this._getListeners(type);
 
-            for(var key in listeners){
-                //This could use .apply(arguments) instead, but there is currently a bug with it.
-                listeners[key](arguments[0],arguments[1],arguments[2],arguments[3],arguments[4],arguments[5],arguments[6]);
-            }
+        Array.prototype.push.apply(args, arguments);
+        args = args.slice(1);
+
+        for (var i = 0; i < listeners.length; i += 1) {
+            listeners[i].apply(null, args);
         }
     }
 })

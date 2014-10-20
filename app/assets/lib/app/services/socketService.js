@@ -10,67 +10,62 @@
 
     var FireBaseService = EventDispatcher.extend({
 
-        events : {
-            connected : 'onConnect'
-            , error : 'onError'
-            , receivedMessage : 'onReceivedMessage'
-            , sendMessage : 'onSendMessage'
-
-        }
-        , _dataRepo : null
+        _name : "SocketService"
+        , _q : null
         , _firebase : null
-        , _fbRef : null
+        , _angularFire : null
+        , _dataRepo : null
+        , _firebaseUrl : null
         , _token : null
 
-        , init : function () {
-            console.log(this._firebase);
+        /* Firebase references */
+        , _fbRef : null
+        , _afbRef : null
+        , _clientRef : null
+        , _operatorRef : null
+        , _sessionRef : null
+
+        , init : function ($q, $firebase, FirebaseDep, DataRepository) {
+            this._q = $q;
+            this._firebase = FirebaseDep;
+            this._angularFire = $firebase;
+            this._dataRepo = DataRepository;
+            this._firebaseUrl = ns('Config.Application').firebase.url;
+            this._fbRef = new this._firebase(this._firebaseUrl);
+            this.initFirebaseReference();
         }
 
-        , setToken : function (token) {
+        , initFirebaseReference : function () {
+
+            this._clientRef = this._fbRef.child('visitors');
+            this._operatorRef = this._fbRef.child('operators');
+            this._sessionRef = this._fbRef.child('sessions');
+
+        }
+
+        , connect : function (token, cb) {
             this._token = token;
-        }
-
-        , connectByToken : function (token, url, cb) {
-            this.setToken = token;
-            this.connect(url, cb)
-        }
-
-        , connect : function (url, cb) {
-            if (_.isEmpty(this._token)) {
-                throw "Error: Token is required";
-                return false;
-            }
-
             var self = this;
+            var callback = function (err, success) {
+                if (_.isUndefined(err)) {
+                    cb(err, success);
+                    return;
+                }
 
-            if (_.isEmpty(this._fbRef)) {
-                this._fbRef = new this._firebase(url);
+                cb(err, success);
             }
 
-            this._fbRef.auth(this._token, cb);
+            this._fbRef.authWithCustomToken(token, callback);
+        }
+
+        , register : function (event, cb) {
+            this.addEventListener(event, cb);
+            return this;
         }
 
     });
 
-    var SocketServiceProvider = Class.extend({
-        instance : new FireBaseService(),
-
-        /**
-         * Initialize and configure ActivtyModel
-         * @return FireBaseService
-        */
-        $get:['$firebase','$q', function($firebase, $q){
-            var injector = angular.injector(['VendorService','SwayChat.DataRepository']);
-            this.instance._firebase = injector.get('FirebaseDep');
-            this.instance._dataRepo = injector.get('DataRepository');
-            this.instance._angularFire = $firebase;
-            this.instance._q = $q;
-            ns('Jotu').SocketService = this.instance;
-            return this.instance;
-        }]
-    })
-
-    angular.module('SwayChat.SocketService',['firebase','VendorService','SwayChat.DataRepository'])
-           .provider('SocketService',SocketServiceProvider);
+    angular.module('SwayChat.SocketService',['ng', 'firebase','VendorService','SwayChat.DataRepository'])
+           .service('SocketService', ['$q', '$firebase', 'FirebaseDep', 'DataRepository', FireBaseService]);
 
 }(_));

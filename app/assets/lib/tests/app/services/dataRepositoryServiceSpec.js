@@ -6,8 +6,8 @@ describe('Data Repository Service', function () {
     //SETUP
 
     beforeEach(function () {
-        module('ng');
-        module('SwayChat.DataRepository');
+        angular.mock.module('ng');
+        angular.mock.module('SwayChat.DataRepository');
 
         inject(function ($injector){
             dataRepositoryService = $injector.get('$window');
