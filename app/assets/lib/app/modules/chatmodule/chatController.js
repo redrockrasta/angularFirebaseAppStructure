@@ -31,6 +31,9 @@
             this._super($scope);
             //@todo - User must be dynamic. For demo purpose only
             $dataRepository.setUser(this._user);
+
+            /*$socketService.register('onNewClient', function (snapshot){console.log(snapshot.val())})
+            $socketService.auth("Frjn43RcE9DXfEAjCQN6uHE0DPT5GvsjsKHAmYnP", function (ret) {})*/
         },
 
         /**

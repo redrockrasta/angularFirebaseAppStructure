@@ -51,14 +51,15 @@
          * @param {object} this
          */
         , addClient : function (client) {
-
             if (_.isEmpty(client)) throw "Error: Invalid client data";
 
-            this.clientData = _.isUndefined(this.clientData) ? [] : this.clientData;
+            this.clientData = _.isUndefined(this.clientData) ? ns('DataRepository').clientData = [] : this.clientData;
 
             var self = this;
             var _add = function (c) {
+
                 var d = _.findWhere(self.clientData, { uid : c.uid});
+
                 if ( _.isEmpty(d)) {
                     self.clientData.push(c);
                     return;
@@ -85,7 +86,7 @@
          * @return {array} array object of client
          */
         , getClients : function () {
-            return _.isUndefined(this.clientData) ? [] : this.clientData;
+            return _.isUndefined(this.clientData) ? ns('DataRepository').clientData = [] : this.clientData;
         }
 
         /**
@@ -106,7 +107,7 @@
 
             if (_.isEmpty(session)) throw "Error: Invalid session data";
 
-            this.sessionData = _.isUndefined(this.sessionData) ? [] : this.sessionData;
+            this.sessionData = _.isUndefined(this.sessionData) ? ns('DataRepository').sessionData = [] : this.sessionData;
 
             var d = _.findWhere(this.sessionData, { id : session.id});
             if ( _.isEmpty(d)) {
@@ -120,7 +121,7 @@
          * @return [array] array of session object
          */
         , getSessions : function () {
-            return _.isUndefined(this.sessionData) ? [] : this.sessionData;
+            return _.isUndefined(this.sessionData) ? ns('DataRepository').sessionData = [] : this.sessionData;
         }
 
         /**
@@ -144,7 +145,7 @@
             var id = message.id;
             var data = message.data;
 
-            this.messageData = _.isUndefined(this.messageData) ? [] : this.messageData;
+            this.messageData = _.isUndefined(this.messageData) ? ns('DataRepository').messageData = [] : this.messageData;
 
             var m = _.findWhere(this.messageData, { id : id});
 
@@ -169,7 +170,7 @@
          * @return [array] array object
          */
         , getMessages : function () {
-            return _.isUndefined(this.messageData) ? [] : this.messageData;
+            return _.isUndefined(this.messageData) ? ns('DataRepository').messageData = [] : this.messageData;
         }
 
         /**
