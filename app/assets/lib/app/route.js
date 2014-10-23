@@ -3,6 +3,6 @@
 
     //DECLARE ROUTES
     //route('path', 'controller@module', 'template')
-    route("/chatmodule", "ChatController@chatmodule", "/assets/template/views/chatmodule/chatController.html");
+    route("/chatmodule/:activeChatId?", "ChatController@chatmodule", "/assets/template/views/chatmodule/chatController.html");
 
 })(_Router);

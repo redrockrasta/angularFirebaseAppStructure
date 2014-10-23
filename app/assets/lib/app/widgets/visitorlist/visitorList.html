@@ -1,0 +1,62 @@
+<div class="visitors-list full-height">
+    <div class="subheader">
+
+            <!--Tabs-->
+            <div class="row">
+              <div class="large-12 columns">
+                <h6>Chat sessions</h6>
+                <dl class="tabs" data-tab>
+                  <div class="row collapse">
+                    <dd class="small-6 columns active"><a href="#/chatmodule/active/123">Active</a></dd>
+                    <dd class="small-6 columns">
+                      <div class="badge bounceIn">
+                        <span>2</span>
+                      </div>
+                      <a href="#/chatmodule/incoming/12334" >Incoming</a>
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+            <!--Tabs End-->
+
+            </div>
+
+            <!--Scrollable List-->
+            <ul class="scrollable">
+
+              <!--Spinner-->
+              <!-- <div class="spinner-container">
+                <div class="spinner">
+                  <div class="bounce1"></div>
+                  <div class="bounce2"></div>
+                  <div class="bounce3"></div>
+                </div>
+              </div> -->
+              <!--Spinner End-->
+
+              <li ng-repeat="client in clientList" >
+                <a href="#">
+                 <div class="visitor-picture">
+                  <img src="https://s3.amazonaws.com/uifaces/faces/twitter/soffes/128.jpg" alt="">
+                </div>
+                <div class="visitors-list-details">
+
+                  <div class="details-left">
+                    <h6>Ashley<span>I see. Thanks for the clarification.</span></h6>
+                  </div>
+
+                  <div class="details-right">
+                    <span class="time">2 mins ago</span>
+                    <div class="new-message">
+                      <h6 class="counter"><span></span>4 New</h6>
+                    </div>
+                  </div>
+
+                </div>
+                </a>
+                <div class="fadeIn"></div>
+              </li>
+            </ul>
+            <!--Scrollable List End-->
+</div>

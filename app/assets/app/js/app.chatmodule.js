@@ -20,4 +20,8 @@
 
 //= include ../../lib/app/modules/chatmodule/chatModel.js
 
+/* WIDGETS*/
+
+//=include ../../lib/app/widgets/visitorList/visitorlistDirective.js
+
 

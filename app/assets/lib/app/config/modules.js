@@ -8,8 +8,8 @@
     var modules = {
         chatmodule : {
             name : 'chatmodule'
-            , dependencies : ['ngRoute', 'chatmodule.ChatModel', 'SwayChat.DataRepository', 'SwayChat.SocketService']
-            , defaultroute : '/chatmodule'
+            , dependencies : ['ngRoute', 'chatmodule.ChatModel', 'SwayChat.DataRepository', 'SwayChat.SocketService', 'SwayChat.Directives']
+            , defaultroute : '/chatmodule/active'
         }
     }
 

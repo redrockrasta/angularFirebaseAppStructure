@@ -13,7 +13,7 @@
 <body class="chat-admin">
   <nav>
     <div class="row">
-      <a href="{#" class="logo"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Swaychat"></a>
+      <a href="{#" class="logo"></a>
     </div>
   </nav>
     <div class="container">

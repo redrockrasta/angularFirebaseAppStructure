@@ -18,6 +18,7 @@ var BaseController = Class.extend({
     init:function(scope){
         this.$scope = scope;
         this.defineListeners();
+        this.defineScope();
     },
 
     /**
@@ -26,6 +27,15 @@ var BaseController = Class.extend({
      */
     defineListeners:function(){
         this.$scope.$on('$destroy',this.destroy.bind(this));
+    },
+
+    /**
+     * Use this function to define all scope objects.
+     * Give a way to instantaly view whats available
+     * publicly on the scope.
+     */
+    defineScope:function(){
+        //OVERRIDE
     },
 
     /**
